@@ -1,0 +1,1 @@
+module.exports.dbURL='mongodb+srv://sa:123@cluster0.klxnk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
