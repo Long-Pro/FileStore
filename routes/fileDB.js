@@ -54,7 +54,7 @@ router.post('/uploadmultiple', upload.array('myFiles', 12), async (req, res, nex
   res.send(str)
 })
 //Uploading base64
-router.post('/uploadBase64', async (req, res, next) => {
+router.post('/uploadImageBase64', async (req, res, next) => {
   let {data}=req.body
   if (!data) {
     const error = new Error('Please enter a base64 string')
@@ -81,8 +81,8 @@ router.get('/:name',async function (req, res){
   let {name}=req.params
   let x=await File.findOne({ name: name }).exec();
   console.log(x.name)
-  let file=new Buffer(x.data,'base64')
-  //res.contentType('image/jpeg')
+  let file=Buffer.from(x.data,'base64')
+  res.contentType('image/jpeg')
   res.send(file)
 })
 
