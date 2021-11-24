@@ -14,7 +14,7 @@
   <div class="container">
     <div class="row">
       <div class="col-6">
-        <h1 class='my-5'>TO SERVER</h1>
+        <h1 class='my-4'>TO SERVER</h1>
         <div class="wrap">
           <form action="/fileServer/upload" enctype="multipart/form-data" method="POST"> 
             <input type="file" name="myFile" class="form-control"/>
@@ -34,7 +34,7 @@
 
       </div>
       <div class="col-6">
-        <h1 class='my-5'>TO DATABASE</h1>
+        <h1 class='my-4'>TO DATABASE</h1>
         <div class="wrap">
           <form action="/fileDB/upload" enctype="multipart/form-data" method="POST"> 
             <input type="file" name="myFile" class="form-control"  />
@@ -49,6 +49,16 @@
           <form action="/fileDB/uploadmultiple"  enctype="multipart/form-data" method="POST">
             <input type="file"  class="form-control" name="myFiles" multiple>
             <button class='btn btn-primary btn-right '>Upload multiple files</button>
+          </form>
+        </div>
+
+        <!-- BASE64  -->
+        <div class="wrap mt-5">
+          <form action="/fileDB/uploadBase64"  method="POST">
+            <textarea name="data" class="form-control"   >
+              
+            </textarea>
+            <button class='btn btn btn-warning btn-right '>Upload base64</button>
           </form>
         </div>
 

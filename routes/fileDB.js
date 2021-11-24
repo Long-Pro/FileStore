@@ -35,7 +35,6 @@ router.post('/uploadmultiple', upload.array('myFiles', 12), async (req, res, nex
     error.httpStatusCode = 400
     return next(error)
   }
-  //console.log(files)
   let str=''
 
   for(const item of files) {
@@ -54,6 +53,22 @@ router.post('/uploadmultiple', upload.array('myFiles', 12), async (req, res, nex
   }
   res.send(str)
 })
+//Uploading base64
+router.post('/uploadBase64', async (req, res, next) => {
+  let {data}=req.body
+  if (!data) {
+    const error = new Error('Please enter a base64 string')
+    error.httpStatusCode = 400
+    return next(error)
+  }
+  let file=new File()
+  file.name=Date.now()
+  file.data=data
+  await file.save();
+  let link=`https://${req.host}/fileDB/${file.name}`
+  res.send(`<a href='${link}' target='_blank'>${link}</a>`)
+})
+
 router.get('/deleteAll',async function (req, res){
   File.deleteMany({ }, function (err,docs) {
     if (err) return handleError(err);
@@ -65,8 +80,9 @@ router.get('/deleteAll',async function (req, res){
 router.get('/:name',async function (req, res){
   let {name}=req.params
   let x=await File.findOne({ name: name }).exec();
+  console.log(x.name)
   let file=new Buffer(x.data,'base64')
-  res.contentType('image/jpeg')
+  //res.contentType('image/jpeg')
   res.send(file)
 })
 
