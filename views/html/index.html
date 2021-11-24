@@ -36,10 +36,6 @@
       <div class="col-6">
         <h1 class='my-5'>TO DATABASE</h1>
         <div class="wrap">
-          <!-- <form action="/fileServer/uploadfile" enctype="multipart/form-data" method="POST"> 
-            <input type="file" name="myFile" class="form-control"/>
-            <button class='btn btn-success  btn-right'>Upload a file</button>
-          </form> -->
           <form action="/fileDB/upload" enctype="multipart/form-data" method="POST"> 
             <input type="file" name="myFile" class="form-control"  />
             <button class='btn btn-success  btn-right'>Upload a file</button>
@@ -50,7 +46,7 @@
       
         <!-- MULTIPLE FILES -->
         <div class="wrap mt-5">
-          <form action="/fileServer/uploadmultiple"  enctype="multipart/form-data" method="POST">
+          <form action="/fileDB/uploadmultiple"  enctype="multipart/form-data" method="POST">
             <input type="file"  class="form-control" name="myFiles" multiple>
             <button class='btn btn-primary btn-right '>Upload multiple files</button>
           </form>
