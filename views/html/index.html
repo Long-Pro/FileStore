@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FileStore</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+ 
+  <!--  SINGLE FILE -->
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+        <h1 class='my-5'>TO SERVER</h1>
+        <div class="wrap">
+          <form action="/fileServer/upload" enctype="multipart/form-data" method="POST"> 
+            <input type="file" name="myFile" class="form-control"/>
+            <button class='btn btn-success  btn-right'>Upload a file</button>
+          </form>
+
+        </div>
+      
+      
+        <!-- MULTIPLE FILES -->
+        <div class="wrap mt-5">
+          <form action="/fileServer/uploadmultiple"  enctype="multipart/form-data" method="POST">
+            <input type="file"  class="form-control" name="myFiles" multiple>
+            <button class='btn btn-primary btn-right '>Upload multiple files</button>
+          </form>
+        </div>
+
+      </div>
+      <div class="col-6">
+        <h1 class='my-5'>TO DATABASE</h1>
+        <div class="wrap">
+          <!-- <form action="/fileServer/uploadfile" enctype="multipart/form-data" method="POST"> 
+            <input type="file" name="myFile" class="form-control"/>
+            <button class='btn btn-success  btn-right'>Upload a file</button>
+          </form> -->
+          <form action="/fileDB/upload" enctype="multipart/form-data" method="POST"> 
+            <input type="file" name="myFile" class="form-control"  />
+            <button class='btn btn-success  btn-right'>Upload a file</button>
+          </form>
+
+        </div>
+      
+      
+        <!-- MULTIPLE FILES -->
+        <div class="wrap mt-5">
+          <form action="/fileServer/uploadmultiple"  enctype="multipart/form-data" method="POST">
+            <input type="file"  class="form-control" name="myFiles" multiple>
+            <button class='btn btn-primary btn-right '>Upload multiple files</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+    .wrap{
+      padding: 20px 20px 20px 20px;
+      border:1px solid #888;
+      border-radius:5px;
+    }
+    input{
+      padding: 9px !important;
+      height: 50px !important;
+      
+    }
+    .btn-right{
+      position: relative;
+      left: 100%;
+      transform: translateX(-100%);
+      margin-top: 20px;
+    }
+  </style>
+</body>
+</html>
+
+
+
+
+
