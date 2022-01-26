@@ -15,8 +15,14 @@ var fileDBRouter = require('./routes/fileDB');
 
 
 var app = express();
-app.use(bodyParser.json()) // for parsing application/json
-app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+// app.use(bodyParser.json()) // for parsing application/json
+// app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+
+app.use(bodyParser.json({ limit: '50mb' }))
+app.use(bodyParser.urlencoded({
+  limit: '50mb',
+  extended: false,
+}))
 
 //Set up mongoose connection
 var mongoose = require('mongoose');
